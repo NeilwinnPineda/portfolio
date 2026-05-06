@@ -1,1 +1,0 @@
-import{Ba as s,Ta as o}from"./chunk-MYCHC2NK.js";var n=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=s({type:t,selectors:[["app-projects"]],decls:1,vars:0,consts:[[1,"projects-stage"]],template:function(e,a){e&1&&o(0,"div",0)},styles:[".projects-stage[_ngcontent-%COMP%]{width:100%;min-height:calc(100vh - 64px)}"]})};export{n as Projects};
