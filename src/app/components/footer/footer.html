@@ -1,0 +1,73 @@
+<footer class="footer" [class.footer--open]="mobileOpen()">
+  <div class="footer-inner">
+
+    <!-- Expandable section (collapses to 0 by default) -->
+    <div class="footer-expand">
+      <div class="footer-expand-inner">
+        <div class="footer-credits">
+
+          <div class="footer-credits-col">
+            <span class="footer-credits-label">Built with</span>
+            <div class="footer-credits-row">
+              <span class="footer-tech-tag">Angular 21</span>
+              <span class="footer-tech-tag">Angular Material 3</span>
+              <span class="footer-tech-tag">TypeScript</span>
+              <span class="footer-tech-tag">Tailwind</span>
+            </div>
+            <div class="footer-credits-row">
+              <span class="footer-tech-tag">Three.js</span>
+              <span class="footer-tech-tag">WebGL</span>
+              <span class="footer-tech-tag">GLSL</span>
+              <span class="footer-tech-tag">CSS</span>
+              <span class="footer-tech-tag">GitHub Pages</span>
+            </div>
+          </div>
+
+          <div class="footer-credits-col">
+            <span class="footer-credits-label">Contact</span>
+            <div class="footer-credits-row">
+              <a [href]="content.contact.github.url" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+              <span class="footer-sep">·</span>
+              <a [href]="'mailto:' + content.contact.email" class="footer-link">{{ content.contact.email }}</a>
+              <span class="footer-sep">·</span>
+              <a [href]="content.contact.resume" download class="footer-link footer-link--resume">Resume</a>
+            </div>
+            <div class="footer-credits-row">
+              <a [href]="content.contact.phone.mobileHref" class="footer-link">{{ content.contact.phone.mobile }}</a>
+              <span class="footer-sep">·</span>
+              <a [href]="content.contact.phone.telephoneHref" class="footer-link">{{ content.contact.phone.telephone }}</a>
+              <span class="footer-sep">·</span>
+              <span class="footer-meta-text">{{ content.contact.location.city }}, {{ content.contact.location.country }}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Always-visible slim bar -->
+    <div class="footer-bottom" (click)="toggleMobile()">
+      <span>© {{ year }} {{ content.hero.name }}</span>
+      <span class="footer-spacer"></span>
+
+<button class="theme-toggle" (click)="theme.toggle()" type="button">
+        @if (theme.isDark()) {
+          <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          Light mode
+        } @else {
+          <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          Dark mode
+        }
+      </button>
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,60 @@
+<section class="hero-section">
+
+  <!-- Projects particle scene as background layer -->
+  <div class="cube-bg">
+    <app-projects />
+  </div>
+
+  <div class="hero-container">
+    <div class="hero-grid">
+
+      <!-- Left: Text content -->
+      <div class="hero-content">
+
+        <div class="availability-pill">
+          <span class="availability-dot"></span>
+          <span>Available for Opportunities</span>
+        </div>
+
+        <h1 class="hero-name">{{ content.hero.name }}</h1>
+        <h2 class="hero-title">{{ content.hero.title }}</h2>
+        <p class="hero-subtitle">{{ content.hero.subtitle }}</p>
+        <p class="hero-headline">{{ content.hero.headline }}</p>
+
+        <div class="hero-location">
+          <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>{{ content.hero.location.city }}, {{ content.hero.location.country }}</span>
+        </div>
+
+        <div class="hero-ctas">
+          <a routerLink="/projects" class="cta-primary">
+            Try the Lab
+            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+          <a routerLink="/contact" class="cta-secondary">
+            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            Get in Touch
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right: Profile photo -->
+      <div class="photo-card">
+        <img src="assets/images/profile/portrait_final.jpg" alt="Neilwinn Pineda" class="profile-img" />
+      </div>
+
+    </div>
+
+
+  </div>
+</section>

@@ -1,0 +1,153 @@
+.contact-page {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+/* ── Intro ── */
+.section-label {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-spicy-paprika);
+  margin-bottom: 1.25rem;
+}
+
+.contact-intro {
+  max-width: 40rem;
+  margin-bottom: 3.5rem;
+}
+
+.contact-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+.contact-sub {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ── Cards grid ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.contact-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--surface-card);
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.contact-card:hover {
+  border-color: color-mix(in srgb, var(--color-spicy-paprika) 40%, transparent);
+  background: color-mix(in srgb, var(--color-spicy-paprika) 4%, transparent);
+}
+
+.contact-card--primary {
+  border-color: color-mix(in srgb, var(--color-spicy-paprika) 25%, transparent);
+}
+
+.contact-card--muted {
+  cursor: default;
+}
+
+.contact-card--muted:hover {
+  border-color: var(--border);
+  background: var(--surface-card);
+}
+
+.card-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--color-spicy-paprika) 12%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-spicy-paprika);
+}
+
+.card-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.card-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-ghost);
+}
+
+.card-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+.card-cta {
+  font-size: 0.78rem;
+  color: var(--color-spicy-paprika);
+  margin-top: 0.25rem;
+}
+
+.card-meta {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  margin-top: 0.25rem;
+}
+
+/* ── Availability note ── */
+.contact-note {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+.availability-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: #4ade80;
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@media (max-width: 640px) {
+  .contact-page { padding: 2.5rem 1.25rem 5rem; }
+  .contact-grid { grid-template-columns: 1fr; }
+}

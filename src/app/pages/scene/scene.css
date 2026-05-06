@@ -1,0 +1,229 @@
+.scene-stage {
+  width: 100%;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+}
+
+.scene-stage canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ── Callout ── */
+.callout {
+  position: relative;
+  background: rgba(8, 8, 10, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.625rem;
+  padding: 0.75rem 1rem;
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  animation: callout-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  pointer-events: none;
+}
+
+.callout strong {
+  font-size: 0.78rem;
+  color: white;
+  font-weight: 600;
+}
+
+.callout span {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+}
+
+.callout-arrow {
+  position: absolute;
+  bottom: -0.45rem;
+  right: 1.1rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  background: rgba(8, 8, 10, 0.88);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+}
+
+@keyframes callout-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Tuner ── */
+.tuner {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.tuner-toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--color-spicy-paprika);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.tuner-toggle svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.tuner-toggle:hover {
+  background: var(--color-tomato);
+}
+
+.tuner--open .tuner-toggle {
+  background: var(--color-tomato-jam);
+}
+
+.tuner-panel {
+  background: rgba(8, 8, 10, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.25rem 1rem;
+  width: 17rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.tuner-title {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0 0 0.25rem;
+}
+
+.tuner-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  cursor: default;
+}
+
+.tuner-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.tuner-label em {
+  font-style: normal;
+  color: var(--color-spicy-paprika);
+  font-variant-numeric: tabular-nums;
+}
+
+.tuner-lock {
+  width: 1.1rem;
+  height: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.3);
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+
+.tuner-lock svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.tuner-lock:hover,
+.tuner-lock--open {
+  color: var(--color-spicy-paprika);
+}
+
+.audio-live {
+  font-style: normal;
+  color: #4ade80;
+  font-size: 0.7rem;
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+input[type="range"] {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--color-spicy-paprika);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-spicy-paprika);
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  /* Hide callout on small screens — not enough room */
+  .callout {
+    display: none;
+  }
+
+  /* Clamp panel width so it doesn't overflow */
+  .tuner-panel {
+    width: calc(100vw - 3rem);
+    max-width: 17rem;
+  }
+
+  .tuner {
+    bottom: 4rem;
+    right: 1rem;
+  }
+}

@@ -1,0 +1,99 @@
+<div #stage class="scene-stage"></div>
+
+<!-- Tuning panel -->
+<div class="tuner" [class.tuner--open]="panelOpen()" [class.tuner--called]="!panelOpen()">
+
+  @if (!panelOpen()) {
+    <div class="callout">
+      <strong>Try the tuner</strong>
+      <span>Adjust particles, or sync drift to music in real time.</span>
+      <div class="callout-arrow"></div>
+    </div>
+  }
+
+  <button class="tuner-toggle" (click)="panelOpen.update(v => !v)" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="4" y1="6"  x2="20" y2="6"/>
+      <line x1="4" y1="12" x2="20" y2="12"/>
+      <line x1="4" y1="18" x2="20" y2="18"/>
+      <circle cx="9"  cy="6"  r="2" fill="currentColor" stroke="none"/>
+      <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none"/>
+      <circle cx="9"  cy="18" r="2" fill="currentColor" stroke="none"/>
+    </svg>
+  </button>
+
+  @if (panelOpen()) {
+    <div class="tuner-panel">
+      <p class="tuner-title">Scene tuner</p>
+
+      <div class="tuner-row">
+        <span class="tuner-label">
+          Particles <em>{{ particleCount() | number }}</em>
+          <button class="tuner-lock" [class.tuner-lock--open]="extremeUnlocked()"
+                  (click)="extremeUnlocked.update(v => !v)" type="button"
+                  [title]="extremeUnlocked() ? 'Lock to safe range' : 'Unlock extreme counts'">
+            @if (extremeUnlocked()) {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 9.9-1"/>
+              </svg>
+            } @else {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            }
+          </button>
+        </span>
+        <input type="range" min="500" [max]="extremeUnlocked() ? 500000 : 80000" step="500"
+               [ngModel]="particleCount()" (ngModelChange)="particleCount.set(+$event)" />
+      </div>
+
+      <label class="tuner-row">
+        <span class="tuner-label">Size <em>{{ particleSize() | number:'1.2-2' }}×</em></span>
+        <input type="range" min="0.1" max="4" step="0.05"
+               [ngModel]="particleSize()" (ngModelChange)="particleSize.set(+$event)" />
+      </label>
+
+      <div class="tuner-row">
+        <span class="tuner-label">
+          Drift
+          @if (audioActive()) {
+            <em class="audio-live">● live</em>
+          } @else {
+            <em>{{ driftAmount() | number:'1.2-2' }}×</em>
+          }
+          <button class="tuner-lock" [class.tuner-lock--open]="audioActive()"
+                  (click)="toggleAudio()" type="button"
+                  [title]="audioActive() ? 'Stop music' : 'Drive drift from music'">
+            @if (audioActive()) {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+              </svg>
+            } @else {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            }
+          </button>
+        </span>
+        <input type="range" min="0" max="4" step="0.05"
+               [disabled]="audioActive()"
+               [ngModel]="driftAmount()" (ngModelChange)="driftAmount.set(+$event)" />
+      </div>
+
+      <label class="tuner-row">
+        <span class="tuner-label">Orbit speed <em>{{ orbitSpeed() | number:'1.2-2' }}×</em></span>
+        <input type="range" min="0.1" max="4" step="0.05"
+               [ngModel]="orbitSpeed()" (ngModelChange)="orbitSpeed.set(+$event)" />
+      </label>
+
+      <label class="tuner-row">
+        <span class="tuner-label">Hue speed <em>{{ hueSpeed() | number:'1.2-2' }}×</em></span>
+        <input type="range" min="0.1" max="4" step="0.05"
+               [ngModel]="hueSpeed()" (ngModelChange)="hueSpeed.set(+$event)" />
+      </label>
+    </div>
+  }
+
+</div>

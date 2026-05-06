@@ -1,3 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/utilities';
 
-@import 'tailwindcss';
+/* ── Palette ── */
+@theme {
+  --color-spicy-paprika:    #da6025;
+  --color-tomato-jam:       #c33034;
+  --color-tomato:           #fb4f3f;
+  --color-medium-violet-red:#be0d7d;
+  --color-almond-silk:      #f1d0c3;
+}
+
+/* ── Theme mix driver ──────────────────────────────────────────────
+   Registering as <percentage> lets the browser interpolate it,
+   unlocking smooth color-mix() transitions and CSS animation.
+   0% = full dark, 100% = full light.
+───────────────────────────────────────────────────────────────── */
+@property --theme-mix {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 0%;
+}
+
+/* ── Auto-cycle animation ── */
+@keyframes theme-oscillate {
+  0%, 100% { --theme-mix: 0%;   }
+  50%       { --theme-mix: 100%; }
+}
+
+:root.auto-theme {
+  animation: theme-oscillate 60s ease-in-out infinite;
+}
+
+/* ── Semantic tokens — single source, both modes ──────────────────
+   Each token interpolates between its dark value (at 0%) and
+   light value (at 100%) via a single --theme-mix percentage.
+───────────────────────────────────────────────────────────────── */
+:root {
+  --theme-mix: 0%; /* dark by default */
+
+  --text-primary:   color-mix(in srgb,
+                      rgba(255,255,255,0.88) calc(100% - var(--theme-mix)),
+                      rgba(0,0,0,0.85)       var(--theme-mix));
+
+  --text-secondary: color-mix(in srgb,
+                      rgba(255,255,255,0.55) calc(100% - var(--theme-mix)),
+                      rgba(0,0,0,0.75)       var(--theme-mix));
+
+  --text-tertiary:  color-mix(in srgb,
+                      rgba(255,255,255,0.35) calc(100% - var(--theme-mix)),
+                      rgba(0,0,0,0.55)       var(--theme-mix));
+
+  --text-ghost:     color-mix(in srgb,
+                      rgba(255,255,255,0.18) calc(100% - var(--theme-mix)),
+                      rgba(0,0,0,0.35)       var(--theme-mix));
+
+  --surface-card:   color-mix(in srgb,
+                      rgba(255,255,255,0.04) calc(100% - var(--theme-mix)),
+                      rgba(0,0,0,0.04)       var(--theme-mix));
+
+  --border:         color-mix(in srgb,
+                      rgba(255,255,255,0.08) calc(100% - var(--theme-mix)),
+                      rgba(0,0,0,0.10)       var(--theme-mix));
+
+  --border-subtle:  color-mix(in srgb,
+                      rgba(255,255,255,0.05) calc(100% - var(--theme-mix)),
+                      rgba(0,0,0,0.06)       var(--theme-mix));
+
+  --nav-bg:         color-mix(in srgb,
+                      rgba(13,13,13,0.75)       calc(100% - var(--theme-mix)),
+                      rgba(248,245,242,0.82)    var(--theme-mix));
+
+  --page-bg:        color-mix(in srgb,
+                      #0d0d0f calc(100% - var(--theme-mix)),
+                      #faf5f2 var(--theme-mix));
+
+  /* Accent text: warm beige in dark, readable orange in light */
+  --text-accent:    color-mix(in srgb,
+                      var(--color-almond-silk) calc(100% - var(--theme-mix)),
+                      var(--color-spicy-paprika) var(--theme-mix));
+}
+
+/* ── Manual light theme ── */
+:root.light {
+  --theme-mix: 100%;
+}
+
+/* ── Hide scrollbars globally ── */
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
