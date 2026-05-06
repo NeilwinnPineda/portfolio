@@ -1,0 +1,1 @@
+import{za as t}from"./chunk-Q7LTN6H3.js";var n=class o{static \u0275fac=function(e){return new(e||o)};static \u0275cmp=t({type:o,selectors:[["app-portfolio"]],decls:0,vars:0,template:function(e,i){},encapsulation:2})};export{n as Portfolio};
