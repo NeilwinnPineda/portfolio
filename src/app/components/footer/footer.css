@@ -12,9 +12,9 @@
 }
 
 .footer-inner {
-  max-width: 72rem;
+  max-width: var(--content-max);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--content-pad-x);
 }
 
 /* ── Expand / collapse via CSS grid trick ── */
@@ -168,5 +168,26 @@ a.footer-tech-tag:hover {
 
   .footer-bottom {
     cursor: pointer;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-inner {
+    padding: 0 var(--content-pad-x-mobile);
+  }
+
+  .footer-credits {
+    max-height: min(54svh, 24rem);
+    overflow: auto;
+    padding: 1rem 0;
+  }
+
+  .footer-credits-row {
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    gap: 0.5rem;
+    padding: 0.7rem 0;
   }
 }

@@ -47,6 +47,11 @@
   .scene-sub {
     display: none;
   }
+
+  .scene-stage {
+    min-height: 28rem;
+    height: min(72svh, 34rem);
+  }
 }
 
 .scene-stage {
@@ -77,6 +82,11 @@
   gap: 0.25rem;
   animation: callout-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
   pointer-events: none;
+}
+
+.tuner--called .callout {
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-spicy-paprika) 0%, transparent);
+  animation: callout-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both, tuner-callout-pulse 2.8s ease-in-out 0.4s infinite;
 }
 
 .callout strong {
@@ -134,6 +144,10 @@
   justify-content: center;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
+}
+
+.tuner--called .tuner-toggle {
+  animation: tuner-toggle-pulse 2.2s ease-in-out infinite;
 }
 
 .tuner-toggle svg {
@@ -228,6 +242,16 @@
   50%       { opacity: 0.3; }
 }
 
+@keyframes tuner-callout-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-spicy-paprika) 0%, transparent); }
+  50% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--color-spicy-paprika) 13%, transparent); }
+}
+
+@keyframes tuner-toggle-pulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
 input[type="range"] {
   width: 100%;
   appearance: none;
@@ -268,14 +292,23 @@ input[type="range"]::-moz-range-thumb {
     display: none;
   }
 
-  /* Clamp panel width so it doesn't overflow */
-  .tuner-panel {
-    width: calc(100vw - 3rem);
-    max-width: 17rem;
-  }
-
   .tuner {
     bottom: 1rem;
     right: 1rem;
+    left: 1rem;
+    align-items: flex-end;
+  }
+
+  .tuner-panel {
+    width: 100%;
+    max-width: 20rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tuner--called .callout,
+  .tuner--called .tuner-toggle,
+  .audio-live {
+    animation: none;
   }
 }

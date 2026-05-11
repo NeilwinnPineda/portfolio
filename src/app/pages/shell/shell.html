@@ -1,25 +1,52 @@
-<section id="home" class="shell-section shell-section--home" data-spy-section aria-label="Home">
+<section
+  id="home"
+  class="shell-section shell-section--home focus-shell"
+  data-spy-section
+  aria-label="Home"
+  [class.is-active-section]="activeSection() === 'home'"
+  [class.is-visible-section]="isVisible('home')"
+  [class.is-muted-section]="activeSection() !== 'home'"
+>
   <app-home />
 </section>
 
-<section id="portfolio" class="shell-section shell-section--portfolio" data-spy-section aria-label="Portfolio">
+<section
+  id="portfolio"
+  class="shell-section shell-section--portfolio focus-shell"
+  data-spy-section
+  aria-label="Portfolio"
+  [class.is-active-section]="activeSection() === 'portfolio'"
+  [class.is-visible-section]="isVisible('portfolio')"
+  [class.is-muted-section]="activeSection() !== 'portfolio'"
+>
   <app-portfolio />
 </section>
 
-<section id="lab" class="shell-section shell-section--lab" data-spy-section aria-label="Lab">
+<section
+  id="lab"
+  class="shell-section shell-section--lab focus-shell"
+  data-spy-section
+  aria-label="Lab"
+  [class.is-active-section]="activeSection() === 'lab'"
+  [class.is-visible-section]="isVisible('lab')"
+  [class.is-muted-section]="activeSection() !== 'lab'"
+>
   <div class="lab-shell">
     <div class="lab-shell-intro">
       <span class="lab-shell-section-label">Lab</span>
       <h1 class="lab-shell-heading">Interactive Runtime Sandbox</h1>
     </div>
     @if (!labLoaded()) {
-      <button type="button" class="lab-start-btn" (click)="loadLab()">
-        <svg class="lab-start-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M8 5v14l11-7z"/>
-          <circle cx="12" cy="12" r="9"/>
-        </svg>
-        Press To Start
-      </button>
+      <div class="lab-start-cue">
+        <span class="lab-start-whisper">runtime waiting</span>
+        <button type="button" class="lab-start-btn" (click)="loadLab()">
+          <svg class="lab-start-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 5v14l11-7z"/>
+            <circle cx="12" cy="12" r="9"/>
+          </svg>
+          Press To Start
+        </button>
+      </div>
     } @else {
       <div class="lab-shell-toolbar">
         <span class="lab-shell-label">3D Lab Runtime</span>
@@ -34,10 +61,26 @@
   }
 </section>
 
-<section id="about" class="shell-section shell-section--about" data-spy-section aria-label="About">
+<section
+  id="about"
+  class="shell-section shell-section--about focus-shell"
+  data-spy-section
+  aria-label="About"
+  [class.is-active-section]="activeSection() === 'about'"
+  [class.is-visible-section]="isVisible('about')"
+  [class.is-muted-section]="activeSection() !== 'about'"
+>
   <app-about />
 </section>
 
-<section id="contact" class="shell-section shell-section--contact" data-spy-section aria-label="Contact">
+<section
+  id="contact"
+  class="shell-section shell-section--contact focus-shell"
+  data-spy-section
+  aria-label="Contact"
+  [class.is-active-section]="activeSection() === 'contact'"
+  [class.is-visible-section]="isVisible('contact')"
+  [class.is-muted-section]="activeSection() !== 'contact'"
+>
   <app-contact />
 </section>

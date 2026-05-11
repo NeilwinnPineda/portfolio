@@ -1,7 +1,7 @@
 .about-page {
-  max-width: 72rem;
+  max-width: var(--content-max);
   margin: 0 auto;
-  padding: 4rem 2rem 6rem;
+  padding: 4rem var(--content-pad-x) 6rem;
 }
 
 /* ── Section label / heading shared ── */
@@ -176,7 +176,7 @@
 .skill-card {
   background: var(--surface-card);
   border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  border-radius: var(--section-card-radius);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -268,7 +268,7 @@
 
 /* ── Closing ── */
 .about-closing {
-  max-width: 40rem;
+  max-width: var(--section-intro-max);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -294,7 +294,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: var(--section-control-radius);
   font-size: 0.875rem;
   text-decoration: none;
   transition: background 0.15s, border-color 0.15s;
@@ -305,7 +305,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: var(--section-control-radius);
   font-size: 0.875rem;
   text-decoration: none;
   background: var(--color-spicy-paprika);
@@ -342,7 +342,7 @@
 /* ── Responsive ── */
 @media (max-width: 640px) {
   .about-page {
-    padding: 2.5rem 1.25rem 5rem;
+    padding: 2.5rem var(--content-pad-x-mobile) 5rem;
   }
 
   .skills-grid {

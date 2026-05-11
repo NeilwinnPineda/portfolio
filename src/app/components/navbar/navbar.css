@@ -19,9 +19,9 @@
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 72rem;
+  max-width: var(--content-max);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--content-pad-x);
 }
 
 .brand {
@@ -173,5 +173,12 @@
 @media (max-width: 640px) {
   .nav-hamburger { display: flex; }
   .nav-links     { display: none; }
-  .navbar-inner  { padding: 0 1.25rem; }
+  .navbar-inner  { padding: 0 var(--content-pad-x-mobile); }
+
+  .brand-name {
+    max-width: 12rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }

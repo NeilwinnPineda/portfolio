@@ -36,6 +36,12 @@
 ───────────────────────────────────────────────────────────────── */
 :root {
   --theme-mix: 0%; /* dark by default */
+  --content-max: 72rem;
+  --content-pad-x: 2rem;
+  --content-pad-x-mobile: 1.25rem;
+  --section-intro-max: 40rem;
+  --section-card-radius: 0.75rem;
+  --section-control-radius: 0.5rem;
 
   --text-primary:   color-mix(in srgb,
                       rgba(255,255,255,0.88) calc(100% - var(--theme-mix)),

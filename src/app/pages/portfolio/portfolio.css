@@ -1,7 +1,7 @@
 .portfolio-page {
-  max-width: 72rem;
+  max-width: var(--content-max);
   margin: 0 auto;
-  padding: 4rem 2rem 6rem;
+  padding: 4rem var(--content-pad-x) 6rem;
 }
 
 .section-label {
@@ -15,7 +15,7 @@
 }
 
 .portfolio-intro {
-  max-width: 40rem;
+  max-width: var(--section-intro-max);
   margin-bottom: 2.5rem;
 }
 
@@ -406,7 +406,7 @@
 
 @media (max-width: 640px) {
   .portfolio-page {
-    padding: 2.5rem 1.25rem 5rem;
+    padding: 2.5rem var(--content-pad-x-mobile) 5rem;
   }
 
   /* Flatten rows into a simple 2-col image grid */
@@ -468,7 +468,7 @@
   .cert-img-card {
     min-height: 0;
     aspect-ratio: 4 / 3;
-    border-radius: 0.65rem;
+    border-radius: var(--section-card-radius);
   }
 
   .cert-img {
@@ -532,7 +532,7 @@
 .cert-img-card {
   position: relative;
   display: block;
-  border-radius: 0.75rem;
+  border-radius: var(--section-card-radius);
   overflow: hidden;
   border: 1px solid var(--border);
   cursor: pointer;
@@ -566,7 +566,7 @@
 .engine-card {
   margin-top: 2rem;
   padding: 2rem 2.25rem;
-  border-radius: 0.875rem;
+  border-radius: var(--section-card-radius);
   border: 1px solid color-mix(in srgb, var(--color-spicy-paprika) 25%, var(--border));
   background: var(--surface-card);
 }
@@ -653,7 +653,7 @@
   font-weight: 500;
   color: var(--text-secondary);
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border-radius: var(--section-control-radius);
   padding: 0.5rem 0.875rem;
   text-decoration: none;
   transition: border-color 0.15s, color 0.15s;

@@ -1,7 +1,7 @@
 .contact-page {
-  max-width: 72rem;
+  max-width: var(--content-max);
   margin: 0 auto;
-  padding: 4rem 2rem 6rem;
+  padding: 4rem var(--content-pad-x) 6rem;
 }
 
 /* ── Intro ── */
@@ -16,7 +16,7 @@
 }
 
 .contact-intro {
-  max-width: 40rem;
+  max-width: var(--section-intro-max);
   margin-bottom: 3.5rem;
 }
 
@@ -48,7 +48,7 @@
   gap: 1.25rem;
   align-items: flex-start;
   padding: 1.75rem;
-  border-radius: 0.75rem;
+  border-radius: var(--section-card-radius);
   border: 1px solid var(--border);
   background: var(--surface-card);
   text-decoration: none;
@@ -148,6 +148,6 @@
 }
 
 @media (max-width: 640px) {
-  .contact-page { padding: 2.5rem 1.25rem 5rem; }
+  .contact-page { padding: 2.5rem var(--content-pad-x-mobile) 5rem; }
   .contact-grid { grid-template-columns: 1fr; }
 }
