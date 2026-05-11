@@ -137,7 +137,7 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 9999px;
-  background: #4ade80;
+  background: color-mix(in srgb, #4ade80 calc(100% - var(--theme-mix)), #16a34a var(--theme-mix));
   flex-shrink: 0;
   animation: pulse 2s infinite;
 }

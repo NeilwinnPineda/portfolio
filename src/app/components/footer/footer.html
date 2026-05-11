@@ -9,17 +9,17 @@
           <div class="footer-credits-col">
             <span class="footer-credits-label">Built with</span>
             <div class="footer-credits-row">
-              <span class="footer-tech-tag">Angular 21</span>
-              <span class="footer-tech-tag">Angular Material 3</span>
-              <span class="footer-tech-tag">TypeScript</span>
-              <span class="footer-tech-tag">Tailwind</span>
+              <a href="https://angular.dev" target="_blank" rel="noopener" class="footer-tech-tag">Angular 21</a>
+              <a href="https://material.angular.io" target="_blank" rel="noopener" class="footer-tech-tag">Angular Material 3</a>
+              <a href="https://www.typescriptlang.org" target="_blank" rel="noopener" class="footer-tech-tag">TypeScript</a>
+              <a href="https://tailwindcss.com" target="_blank" rel="noopener" class="footer-tech-tag">Tailwind</a>
             </div>
             <div class="footer-credits-row">
-              <span class="footer-tech-tag">Three.js</span>
-              <span class="footer-tech-tag">WebGL</span>
-              <span class="footer-tech-tag">GLSL</span>
-              <span class="footer-tech-tag">CSS</span>
-              <span class="footer-tech-tag">GitHub Pages</span>
+              <a href="https://threejs.org" target="_blank" rel="noopener" class="footer-tech-tag">Three.js</a>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API" target="_blank" rel="noopener" class="footer-tech-tag">WebGL</a>
+              <a href="https://www.khronos.org/opengl/wiki/Core_Language_(GLSL)" target="_blank" rel="noopener" class="footer-tech-tag">GLSL</a>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener" class="footer-tech-tag">CSS</a>
+              <a href="https://pages.github.com" target="_blank" rel="noopener" class="footer-tech-tag">GitHub Pages</a>
             </div>
           </div>
 
@@ -30,7 +30,9 @@
               <span class="footer-sep">·</span>
               <a [href]="'mailto:' + content.contact.email" class="footer-link">{{ content.contact.email }}</a>
               <span class="footer-sep">·</span>
-              <a [href]="content.contact.resume" download class="footer-link footer-link--resume">Resume</a>
+              <a [href]="content.contact.resumes.artist3d" download class="footer-link footer-link--resume">3D Resume</a>
+              <span class="footer-sep">·</span>
+              <a [href]="content.contact.resumes.fullstack" download class="footer-link footer-link--resume">Full Stack Resume</a>
             </div>
             <div class="footer-credits-row">
               <a [href]="content.contact.phone.mobileHref" class="footer-link">{{ content.contact.phone.mobile }}</a>

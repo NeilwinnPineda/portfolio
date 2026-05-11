@@ -84,6 +84,12 @@
   --theme-mix: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  scroll-snap-type: y proximity;
+}
+
 /* ── Hide scrollbars globally ── */
 * {
   scrollbar-width: none;

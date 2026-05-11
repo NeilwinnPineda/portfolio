@@ -77,6 +77,13 @@
   border: 1px solid var(--border);
   color: var(--text-secondary);
   background: color-mix(in srgb, var(--color-spicy-paprika) 6%, transparent);
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+a.footer-tech-tag:hover {
+  color: var(--color-spicy-paprika);
+  border-color: color-mix(in srgb, var(--color-spicy-paprika) 40%, transparent);
 }
 
 .footer-sep {

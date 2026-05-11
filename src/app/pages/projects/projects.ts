@@ -5,12 +5,13 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import * as THREE from 'three';
 
-const PARTICLE_COUNT = 6500;
+const PARTICLE_COUNT = 4200;
 const MESH_JSON_URL  = 'assets/images/mesh.json';
 const CAMERA_Y_BASE_FACTOR = 0.08;
 const MODEL_Y_LOCK_FACTOR = 0.0;
 const ORBIT_BASE_SPEED = 0.16;
 const ORBIT_SPEED_JITTER = 0.06;
+const STAR_COUNT = 900;
 
 interface MeshJson {
   positions: number[];
@@ -52,6 +53,7 @@ export class Projects implements AfterViewInit, OnDestroy {
   private rafId?:    number;
   private renderer?: THREE.WebGLRenderer;
   private resizeObs?: ResizeObserver;
+  private colorStride = 2;
 
   ngAfterViewInit() {
     if (!isPlatformBrowser(this.platform)) return;
@@ -67,6 +69,9 @@ export class Projects implements AfterViewInit, OnDestroy {
 
   private async boot() {
     const el = this.stageRef.nativeElement;
+    const constrained = this.isConstrainedDevice();
+    const pixelRatioCap = constrained ? 1.05 : 1.35;
+    this.colorStride = constrained ? 3 : 2;
 
     // ── Scene ──────────────────────────────────────────────────────
     const BG_DARK  = new THREE.Color(0x020304);
@@ -82,7 +87,7 @@ export class Projects implements AfterViewInit, OnDestroy {
     const camera = new THREE.PerspectiveCamera(58, el.clientWidth / el.clientHeight, 0.1, 1000);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, pixelRatioCap));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     el.appendChild(renderer.domElement);
     this.renderer  = renderer;
@@ -101,7 +106,7 @@ export class Projects implements AfterViewInit, OnDestroy {
 
     // ── Stars ──────────────────────────────────────────────────────
     const starPos: number[] = [];
-    for (let i = 0; i < 1800; i++) {
+    for (let i = 0; i < STAR_COUNT; i++) {
       starPos.push(
         (Math.random() - 0.5) * 180,
         (Math.random() - 0.5) * 180,
@@ -179,8 +184,10 @@ export class Projects implements AfterViewInit, OnDestroy {
     const dummy  = new THREE.Object3D();
     const color  = new THREE.Color();
 
+    let frame = 0;
     const tick = () => {
       this.rafId = requestAnimationFrame(tick);
+      frame++;
 
       // Flip Three.js theme when auto-cycle (or manual toggle) crosses 50%
       const nowLight = themeMix() > 0.5;
@@ -211,6 +218,7 @@ export class Projects implements AfterViewInit, OnDestroy {
       root.rotation.z   = Math.cos(elapsed * 0.18) * 0.025;
       root.position.y = objectHeight * MODEL_Y_LOCK_FACTOR;
 
+      const updateColor = frame % this.colorStride === 0;
       for (let i = 0; i < PARTICLE_COUNT; i++) {
         const p  = particles[i];
         const ox =
@@ -227,16 +235,18 @@ export class Projects implements AfterViewInit, OnDestroy {
         dummy.updateMatrix();
         beads.setMatrixAt(i, dummy.matrix);
 
-        color.setHSL(
-          ((globalHue + p.hueOffset) % 1 + 1) % 1,
-          1.0,
-          lightMode ? 0.22 + twinkle * 0.18 : 0.38 + twinkle * 0.32
-        );
-        beads.setColorAt(i, color);
+        if (updateColor) {
+          color.setHSL(
+            ((globalHue + p.hueOffset) % 1 + 1) % 1,
+            1.0,
+            lightMode ? 0.22 + twinkle * 0.18 : 0.38 + twinkle * 0.32
+          );
+          beads.setColorAt(i, color);
+        }
       }
 
       beads.instanceMatrix.needsUpdate = true;
-      if (beads.instanceColor) beads.instanceColor.needsUpdate = true;
+      if (updateColor && beads.instanceColor) beads.instanceColor.needsUpdate = true;
       (beadMat as THREE.MeshBasicMaterial).opacity =
         0.76 + this.waveNoise(elapsed * 1.55, 5.8) * 0.12;
 
@@ -316,5 +326,12 @@ export class Projects implements AfterViewInit, OnDestroy {
     const b = Math.sin(t * 0.53 + seed * 1.91);
     const c = Math.sin(t * 1.73 + seed * 0.37);
     return (a * 0.55 + b * 0.3 + c * 0.15);
+  }
+
+  private isConstrainedDevice(): boolean {
+    const mobile = window.innerWidth <= 768;
+    const cpu = navigator.hardwareConcurrency ?? 4;
+    const mem = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 4;
+    return mobile || cpu <= 4 || mem <= 4;
   }
 }

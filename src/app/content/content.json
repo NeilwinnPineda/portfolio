@@ -1,16 +1,16 @@
-{
+﻿{
   "site": {
     "name": "Neilwinn M. Pineda",
     "type": "Portfolio / Technical Resume",
-    "description": "A portfolio and technical profile covering 3D visualization, full stack development, automation systems, and AI workflows.",
+    "description": "A technical workspace centered on visualization, full stack delivery, automation utilities, and AI-assisted execution.",
     "status": "Active Development",
     "version": "1.0.0"
   },
 
   "hero": {
     "name": "Neilwinn M. Pineda",
-    "title": "3D Artist · Full Stack Developer · Automation Systems · AI Workflows",
-    "subtitle": "3D visualization, full stack development, automation, and technical workflows.",
+    "title": "3D Modeller | Full Stack Developer | Automation Systems | AI Workflows",
+    "subtitle": "Technical generalist across visualization, web platforms, automation, and interactive runtime tooling.",
     "focusAreas": [
       "3D Artist",
       "Full Stack",
@@ -18,9 +18,9 @@
       "AI Workflows",
       "Extensions"
     ],
-    "headline": "I work across 3D visualization, full stack development, automation, and technical workflows — with hands-on production experience spanning rendering pipelines, web systems, internal tooling, and team leadership.",
+    "headline": "I build across 3D visualization, full stack software, automation, and runtime-focused tools with production experience in rendering operations, internal platforms, and team delivery.",
     "subtext": [
-      "If there's friction in a process, I tend to build something to fix it."
+      "If there is friction in a process, I tend to build something to fix it."
     ],
     "tags": [
       "3D / Rendering",
@@ -42,7 +42,10 @@
       "url": "https://github.com/NeilwinnPineda"
     },
     "portfolio": "https://NeilwinnPineda.github.io/portfolio/",
-    "resume": "assets/images/resume_min.pdf",
+    "resumes": {
+      "artist3d": "assets/images/3DM_Res.pdf",
+      "fullstack": "assets/images/Fullstack_Res.pdf"
+    },
     "phone": {
       "mobile": "+63 998 377 2384",
       "mobileHref": "tel:+639983772384",
@@ -58,15 +61,38 @@
   "quickNote": "Keep trying till it works!",
 
   "about": {
-    "intro": "I studied architecture before moving into professional 3D visualization. Over time, I also got deeper into development by building web tools and automations to solve practical workflow problems. Today my work combines visual production and technical systems, depending on what the project needs.",
-    "tagline": "3D artist and developer building practical tools and visuals."
+    "intro": "I studied architecture before moving into professional 3D visualization, then expanded into software by building utilities around real production friction. Most of my work starts from operational gaps, repetitive manual steps, or curiosity about how rendering, interaction, and data can connect into cleaner technical environments. This portfolio is not a static gallery - it is an active workspace containing production tools, visualization experiments, runtime research, and reusable infrastructure shaped by practical needs.",
+    "tagline": "Systems-oriented developer for visualization, automation, and interactive technical tools."
   },
 
   "footer": {
-    "bio": "3D artist and developer based in the Philippines. Building across visualization, web systems, and automation."
+    "bio": "Technical generalist based in the Philippines, building across visualization, runtime interfaces, web delivery, and automation."
   },
 
   "moreWork": "Check out my portfolio @ NeilwinnPineda.github.io/portfolio/",
+
+  "projectGroups": [
+    {
+      "name": "Production and Workflow Tools",
+      "description": "Internal utilities, reporting helpers, and quality support tools designed to reduce repetitive effort and improve delivery visibility."
+    },
+    {
+      "name": "Visualization and Rendering",
+      "description": "3D output work and rendering studies focused on image quality, asset handling, and production-ready visual execution."
+    },
+    {
+      "name": "Runtime and Engine Research",
+      "description": "Low-level exploration around rendering behavior, input handling, entity flow, and editor/runtime boundaries."
+    },
+    {
+      "name": "Interactive Experiments",
+      "description": "Prototype interfaces and interaction tests used to validate technical ideas quickly before scaling implementation."
+    },
+    {
+      "name": "Automation and Internal Utilities",
+      "description": "Scripted helpers and process accelerators for scraping, data handling, coordination, and operational maintenance."
+    }
+  ],
 
   "experience": [
     {
@@ -78,7 +104,7 @@
       },
       "description": [
         "Led a 3D modeling production team delivering high-volume architectural visualization for international clients.",
-        "Owned workflow coordination, quality standards, and technical troubleshooting across the full production pipeline.",
+        "Owned production coordination, quality standards, and technical troubleshooting across end-to-end rendering delivery.",
         "Served as the key liaison between production teams and management during peak-volume periods."
       ]
     },
@@ -90,7 +116,7 @@
         "end": "Mar 2025"
       },
       "description": [
-        "Delivered high-volume architectural visualization outputs — modeling, rendering, and post-processing — across tight client turnaround schedules.",
+        "Delivered high-volume architectural visualization outputs - modeling, rendering, and post-processing - across tight client turnaround schedules.",
         "Maintained consistent quality across large SketchUp and VRay pipeline batches under sustained production pressure."
       ]
     },
@@ -102,7 +128,7 @@
         "end": "Sep 2023"
       },
       "description": [
-        "Contributed to Unity-based workflows covering asset preparation, geometry optimization, and game-ready production pipeline structures."
+        "Contributed to Unity-based delivery practices covering asset preparation, geometry optimization, and game-ready production structures."
       ]
     }
   ],
@@ -114,27 +140,27 @@
     },
     {
       "title": "Full Stack Web Development",
-      "description": "Built full stack JavaScript systems including dynamic dashboards, REST APIs, browser extensions, and workflow-oriented web applications."
+      "description": "Built full stack JavaScript solutions including dashboards, REST APIs, browser extensions, and production-aware internal web applications."
     },
     {
       "title": "Workflow Automation",
-      "description": "Built custom tools, reporting systems, scraping utilities, and spreadsheet automation targeting real production bottlenecks — reducing repetitive work and improving team visibility."
+      "description": "Built custom utilities, reporting surfaces, scraping helpers, and spreadsheet automation targeting real production bottlenecks - reducing repetitive work and improving team visibility."
     },
     {
-      "title": "AI & LLM Workflows",
-      "description": "Integrates LLM tooling into development workflows for faster prototyping, debugging, code generation, and iterative technical problem-solving."
+      "title": "AI and LLM Integration",
+      "description": "Integrates LLM-assisted development for faster prototyping, debugging support, code generation, and iterative technical problem-solving."
     }
   ],
 
   "skills": [
     {
-      "title": "Programming & Systems",
-      "description": "General programming background across high-level scripting, low-level languages, runtime tools, extensions, and modular systems.",
+      "title": "Programming and Runtime Development",
+      "description": "General programming background across scripting, lower-level development, runtime utilities, and extension-oriented implementation.",
       "tags": [
         "General Programming",
         "Systems Programming",
-        "Runtime & Tool Development",
-        "Modular Architecture"
+        "Runtime and Tool Development",
+        "Runtime Design Patterns"
       ],
       "tools": [
         "C++",
@@ -163,12 +189,12 @@
       ]
     },
     {
-      "title": "Data & Automation",
-      "description": "Experience with structured and unstructured data, automation workflows, scraping, reporting, and data-driven operational tools.",
+      "title": "Data and Automation",
+      "description": "Experience with structured and unstructured data, process automation, scraping, reporting, and data-driven operational utilities.",
       "tags": [
         "SQL / NoSQL Systems",
-        "Workflow Automation",
-        "DOM & Web Scraping",
+        "Process Automation",
+        "DOM and Web Scraping",
         "Operational Dashboards"
       ],
       "tools": [
@@ -179,7 +205,7 @@
       ]
     },
     {
-      "title": "Graphics & Visualization",
+      "title": "Graphics and Visualization",
       "description": "Strong production background in 3D visualization, rendering, modeling workflows, and final image preparation.",
       "tags": [
         "3D Modeling",
@@ -195,8 +221,8 @@
       ]
     },
     {
-      "title": "AI & LLM Workflows",
-      "description": "Applies AI and LLM tools to accelerate development — prototyping, debugging, code generation, and iterative problem-solving across projects.",
+      "title": "AI and LLM Workflows",
+      "description": "Applies AI and LLM tools to accelerate development - prototyping, debugging, code generation, and iterative problem-solving across projects.",
       "tags": [
         "AI-Assisted Development",
         "LLM Workflows",
@@ -209,13 +235,13 @@
       ]
     },
     {
-      "title": "Custom Tools & Workflow Systems",
-      "description": "Builds custom tools around real production needs — repetitive task reduction, QA checks, reporting systems, and workflow coordination.",
+      "title": "Custom Tools and Production Utilities",
+      "description": "Builds custom tools around real production needs - repetitive task reduction, QA checks, reporting systems, and execution coordination.",
       "tags": [
         "Internal Tools",
         "Reporting Systems",
         "QA Utilities",
-        "Workflow Systems"
+        "Production Support"
       ],
       "tools": [
         "Apps Script",
@@ -259,7 +285,7 @@
     ]
   },
 
-  "closingNote": "I build things that are flexible, visual, and scalable — and I'm looking for a team where that kind of thinking makes a real difference.",
+  "closingNote": "I build technical environments that stay practical under production pressure, and I am looking for a team where cross-domain problem solving creates real operational impact.",
 
   "certificates": [
     { "src": "assets/images/certificates/cert-1.png", "alt": "Certificate" },
@@ -269,19 +295,16 @@
   ],
 
   "gameEngine": {
-    "name": "Custom Game Engine",
-    "status": "In Development",
-    "description": "A custom C++ game engine focused on rendering and runtime architecture. Current work includes real-time rendering, scene and entity management, input flow, and core tooling for iterative engine development.",
+    "name": "Engine-Chili2.0",
+    "status": "Flagship Runtime R&D",
+    "description": "Engine-Chili2.0 is my flagship runtime research track: a C++ rendering and interaction environment used to explore reusable graphics infrastructure, editor/runtime separation, and prototype-first technical direction.",
     "recentProgress": [
-      "Refined core rendering flow and improved scene update stability.",
-      "Expanded ECS and runtime structure for cleaner feature iteration.",
-      "Added and organized build targets with CMake for faster local testing.",
-      "Improved input and camera handling behavior for more consistent control."
+      "Refined core render loop behavior and improved frame-to-frame scene stability during iteration.",
+      "Expanded entity and update flow to support cleaner experimentation with reusable runtime features.",
+      "Organized CMake targets to speed up local compile-test cycles and reduce integration friction.",
+      "Improved camera and input behavior for more reliable interaction testing across prototype scenes."
     ],
     "tech": ["C++", "DirectX", "HLSL", "CMake"],
     "github": "https://github.com/chaosg0hd/Engine-Chili2.0"
   }
 }
-
-
-

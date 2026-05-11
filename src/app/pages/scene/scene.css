@@ -1,6 +1,58 @@
+.scene-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.scene-intro {
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
+  z-index: 10;
+  max-width: 22rem;
+  pointer-events: none;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-accent);
+  margin-bottom: 0.5rem;
+}
+
+.scene-heading {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.625rem;
+  line-height: 1.1;
+}
+
+.scene-sub {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .scene-intro {
+    top: 1.25rem;
+    left: 1.25rem;
+    max-width: calc(100% - 2.5rem);
+  }
+
+  .scene-sub {
+    display: none;
+  }
+}
+
 .scene-stage {
   width: 100%;
-  height: calc(100vh - 64px);
+  height: calc(100svh - 64px - clamp(3rem, 8vh, 5.5rem));
+  min-height: 34rem;
   overflow: hidden;
 }
 
@@ -58,10 +110,10 @@
 
 /* ── Tuner ── */
 .tuner {
-  position: fixed;
-  bottom: 5rem;
+  position: absolute;
+  bottom: 1.5rem;
   right: 1.5rem;
-  z-index: 100;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -223,7 +275,7 @@ input[type="range"]::-moz-range-thumb {
   }
 
   .tuner {
-    bottom: 4rem;
+    bottom: 1rem;
     right: 1rem;
   }
 }

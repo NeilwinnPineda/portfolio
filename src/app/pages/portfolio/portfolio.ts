@@ -196,7 +196,11 @@ export class Portfolio implements AfterViewInit, OnDestroy {
     this.page.set(p);
     this.featured.set(null);
     this.hovered.set(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const section = document.getElementById('portfolio');
+    if (section) {
+      const top = section.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   }
 
   prev() { if (this.page() > 0) this.goTo(this.page() - 1); }

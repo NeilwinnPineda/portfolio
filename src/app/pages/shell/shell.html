@@ -1,0 +1,43 @@
+<section id="home" class="shell-section shell-section--home" data-spy-section aria-label="Home">
+  <app-home />
+</section>
+
+<section id="portfolio" class="shell-section shell-section--portfolio" data-spy-section aria-label="Portfolio">
+  <app-portfolio />
+</section>
+
+<section id="lab" class="shell-section shell-section--lab" data-spy-section aria-label="Lab">
+  <div class="lab-shell">
+    <div class="lab-shell-intro">
+      <span class="lab-shell-section-label">Lab</span>
+      <h1 class="lab-shell-heading">Interactive Runtime Sandbox</h1>
+    </div>
+    @if (!labLoaded()) {
+      <button type="button" class="lab-start-btn" (click)="loadLab()">
+        <svg class="lab-start-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 5v14l11-7z"/>
+          <circle cx="12" cy="12" r="9"/>
+        </svg>
+        Press To Start
+      </button>
+    } @else {
+      <div class="lab-shell-toolbar">
+        <span class="lab-shell-label">3D Lab Runtime</span>
+        <button type="button" class="lab-shell-btn lab-shell-btn--danger" (click)="unloadLab()">Unload</button>
+      </div>
+    }
+  </div>
+  @if (labLoaded()) {
+    <div class="lab-scene-shell">
+      <app-scene />
+    </div>
+  }
+</section>
+
+<section id="about" class="shell-section shell-section--about" data-spy-section aria-label="About">
+  <app-about />
+</section>
+
+<section id="contact" class="shell-section shell-section--contact" data-spy-section aria-label="Contact">
+  <app-contact />
+</section>

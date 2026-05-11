@@ -1,6 +1,6 @@
 .hero-section {
   position: relative;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100svh - 64px - clamp(3rem, 8vh, 5.5rem));
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -219,7 +219,7 @@
   flex-shrink: 0;
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--color-spicy-paprika) 15%, transparent),
-    0 24px 48px rgba(0, 0, 0, 0.35);
+    0 24px 48px color-mix(in srgb, rgba(0,0,0,0.38) calc(100% - var(--theme-mix)), rgba(0,0,0,0.12) var(--theme-mix));
 }
 
 .profile-img {

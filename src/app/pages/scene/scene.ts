@@ -6,7 +6,7 @@ import { isPlatformBrowser, DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import * as THREE from 'three';
 
-const PARTICLE_MAX        = 500000;
+const PARTICLE_MAX        = 120000;
 const MESH_JSON_URL       = 'assets/images/mesh.json';
 const CAMERA_Y_BASE_FACTOR = 0.08;
 const MODEL_Y_LOCK_FACTOR  = 0.0;
@@ -38,6 +38,15 @@ interface Particle {
   hueOffset:    number;
 }
 
+interface RenderProfile {
+  pixelRatioCap: number;
+  starCount: number;
+  defaultParticles: number;
+  safeMaxParticles: number;
+  extremeMaxParticles: number;
+  colorStride: number;
+}
+
 @Component({
   selector:    'app-scene',
   imports:     [FormsModule, DecimalPipe],
@@ -53,7 +62,7 @@ export class Scene implements AfterViewInit, OnDestroy {
   private resizeObs?: ResizeObserver;
 
   // ── Tunable parameters ──────────────────────────────────────────
-  particleCount  = signal(20000);
+  particleCount  = signal(10000);
   particleSize   = signal(1.0);
   driftAmount    = signal(1.0);
   orbitSpeed     = signal(1.0);
@@ -62,11 +71,21 @@ export class Scene implements AfterViewInit, OnDestroy {
   panelOpen       = signal(false);
   extremeUnlocked = signal(false);
   audioActive     = signal(false);
+  safeMaxParticles = signal(50000);
+  extremeMaxParticles = signal(PARTICLE_MAX);
 
   private audioCtx?:  AudioContext;
   private analyser?:  AnalyserNode;
   private audioEl?:   HTMLAudioElement;
   private audioData?: Uint8Array<ArrayBuffer>;
+  private profile: RenderProfile = {
+    pixelRatioCap: 1.5,
+    starCount: 1000,
+    defaultParticles: 10000,
+    safeMaxParticles: 50000,
+    extremeMaxParticles: PARTICLE_MAX,
+    colorStride: 2
+  };
 
   ngAfterViewInit() {
     if (!isPlatformBrowser(this.platform)) return;
@@ -119,6 +138,10 @@ export class Scene implements AfterViewInit, OnDestroy {
 
   private async boot() {
     const el = this.stageRef.nativeElement;
+    this.profile = this.getRenderProfile();
+    this.particleCount.set(this.profile.defaultParticles);
+    this.safeMaxParticles.set(this.profile.safeMaxParticles);
+    this.extremeMaxParticles.set(this.profile.extremeMaxParticles);
 
     // ── Scene ──────────────────────────────────────────────────────
     const BG_DARK  = new THREE.Color(0x020304);
@@ -134,7 +157,7 @@ export class Scene implements AfterViewInit, OnDestroy {
     const camera = new THREE.PerspectiveCamera(58, el.clientWidth / el.clientHeight, 0.1, 1000);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, this.profile.pixelRatioCap));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     el.appendChild(renderer.domElement);
     this.renderer = renderer;
@@ -152,7 +175,7 @@ export class Scene implements AfterViewInit, OnDestroy {
 
     // ── Stars ──────────────────────────────────────────────────────
     const starPos: number[] = [];
-    for (let i = 0; i < 1800; i++) {
+    for (let i = 0; i < this.profile.starCount; i++) {
       starPos.push(
         (Math.random() - 0.5) * 180,
         (Math.random() - 0.5) * 180,
@@ -227,8 +250,10 @@ export class Scene implements AfterViewInit, OnDestroy {
     const dummy = new THREE.Object3D();
     const color = new THREE.Color();
 
+    let frame = 0;
     const tick = () => {
       this.rafId = requestAnimationFrame(tick);
+      frame++;
 
       const nowLight = themeMix() > 0.5;
       if (nowLight !== lightMode) applyTheme(nowLight);
@@ -265,6 +290,7 @@ export class Scene implements AfterViewInit, OnDestroy {
 
       beads.count = count;
 
+      const updateColor = frame % this.profile.colorStride === 0;
       for (let i = 0; i < count; i++) {
         const p  = particles[i];
         const dc = (n: number) => Math.sign(n) * Math.pow(Math.abs(n), 2.2);
@@ -278,16 +304,18 @@ export class Scene implements AfterViewInit, OnDestroy {
         dummy.updateMatrix();
         beads.setMatrixAt(i, dummy.matrix);
 
-        color.setHSL(
-          ((globalHue + p.hueOffset) % 1 + 1) % 1,
-          1.0,
-          lightMode ? 0.22 + twinkle * 0.18 : 0.38 + twinkle * 0.32
-        );
-        beads.setColorAt(i, color);
+        if (updateColor) {
+          color.setHSL(
+            ((globalHue + p.hueOffset) % 1 + 1) % 1,
+            1.0,
+            lightMode ? 0.22 + twinkle * 0.18 : 0.38 + twinkle * 0.32
+          );
+          beads.setColorAt(i, color);
+        }
       }
 
       beads.instanceMatrix.needsUpdate = true;
-      if (beads.instanceColor) beads.instanceColor.needsUpdate = true;
+      if (updateColor && beads.instanceColor) beads.instanceColor.needsUpdate = true;
       (beadMat as THREE.MeshBasicMaterial).opacity =
         0.76 + this.waveNoise(elapsed * 1.55, 5.8) * 0.12;
 
@@ -367,5 +395,33 @@ export class Scene implements AfterViewInit, OnDestroy {
     const b = Math.sin(t * 0.53 + seed * 1.91);
     const c = Math.sin(t * 1.73 + seed * 0.37);
     return (a * 0.55 + b * 0.3 + c * 0.15);
+  }
+
+  private getRenderProfile(): RenderProfile {
+    const width = window.innerWidth;
+    const mobile = width <= 768;
+    const cpu = navigator.hardwareConcurrency ?? 4;
+    const mem = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 4;
+    const constrained = mobile || cpu <= 4 || mem <= 4;
+
+    if (constrained) {
+      return {
+        pixelRatioCap: 1.1,
+        starCount: 700,
+        defaultParticles: 7000,
+        safeMaxParticles: 30000,
+        extremeMaxParticles: 80000,
+        colorStride: 3
+      };
+    }
+
+    return {
+      pixelRatioCap: 1.5,
+      starCount: 1200,
+      defaultParticles: 10000,
+      safeMaxParticles: 50000,
+      extremeMaxParticles: PARTICLE_MAX,
+      colorStride: 2
+    };
   }
 }

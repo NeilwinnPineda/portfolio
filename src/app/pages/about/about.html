@@ -15,7 +15,7 @@
   </section>
 
   <!-- Experience -->
-  <section class="about-section">
+  <section id="skills" class="about-section spy-anchor">
     <h2 class="section-heading">
       <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <rect width="20" height="14" x="2" y="7" rx="2"/>
@@ -94,13 +94,21 @@
   <section class="about-closing">
     <p class="closing-note">{{ content.closingNote }}</p>
     <div class="closing-ctas">
-      <a [href]="content.contact.resume" download class="cta-primary">
+      <a [href]="content.contact.resumes.artist3d" download class="cta-resume">
         <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <polyline points="7 10 12 15 17 10"/>
           <line x1="12" y1="15" x2="12" y2="3"/>
         </svg>
-        Download Resume
+        3D Artist Resume
+      </a>
+      <a [href]="content.contact.resumes.fullstack" download class="cta-resume">
+        <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Full Stack Resume
       </a>
       <a [href]="content.contact.github.url" target="_blank" rel="noopener" class="cta-secondary">
         <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">

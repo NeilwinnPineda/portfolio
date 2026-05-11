@@ -1,6 +1,6 @@
 <mat-toolbar class="navbar-bar">
   <div class="navbar-inner">
-    <a routerLink="/" class="brand" (click)="closeMenu()">
+    <a href="#home" class="brand" (click)="scrollTo($event, 'home')">
       <div class="brand-icon">NP</div>
       <span class="brand-name">Neilwinn Pineda</span>
     </a>
@@ -8,14 +8,14 @@
 
     <!-- Desktop nav -->
     <nav class="nav-links">
-      <a routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" class="nav-link">
+      <a href="#home" class="nav-link" [class.active]="isActive('home')" [attr.aria-current]="isActive('home') ? 'true' : null" (click)="scrollTo($event, 'home')">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
           <polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
         Home
       </a>
-      <a routerLink="/portfolio" routerLinkActive="active" class="nav-link">
+      <a href="#portfolio" class="nav-link" [class.active]="isActive('portfolio')" [attr.aria-current]="isActive('portfolio') ? 'true' : null" (click)="scrollTo($event, 'portfolio')">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <rect width="7" height="7" x="3" y="3" rx="1"/>
           <rect width="7" height="7" x="14" y="3" rx="1"/>
@@ -24,7 +24,7 @@
         </svg>
         Portfolio
       </a>
-      <a routerLink="/projects" routerLinkActive="active" class="nav-link">
+      <a href="#lab" class="nav-link" [class.active]="isActive('lab')" [attr.aria-current]="isActive('lab') ? 'true' : null" (click)="scrollTo($event, 'lab')">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
           <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
@@ -32,14 +32,14 @@
         </svg>
         Lab
       </a>
-      <a routerLink="/about" routerLinkActive="active" class="nav-link">
+      <a href="#about" class="nav-link" [class.active]="isActive('about')" [attr.aria-current]="isActive('about') ? 'true' : null" (click)="scrollTo($event, 'about')">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
           <circle cx="12" cy="7" r="4"/>
         </svg>
         About
       </a>
-      <a routerLink="/contact" routerLinkActive="active" class="nav-link">
+      <a href="#contact" class="nav-link" [class.active]="isActive('contact')" [attr.aria-current]="isActive('contact') ? 'true' : null" (click)="scrollTo($event, 'contact')">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <rect width="20" height="16" x="2" y="4" rx="2"/>
           <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
@@ -65,14 +65,14 @@
 
 <!-- Mobile slide-down menu -->
 <div class="nav-mobile" [class.nav-mobile--open]="menuOpen()">
-  <a routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" class="nav-mobile-link" (click)="closeMenu()">
+  <a href="#home" class="nav-mobile-link" [class.active]="isActive('home')" [attr.aria-current]="isActive('home') ? 'true' : null" (click)="scrollTo($event, 'home')">
     <svg class="nav-mobile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
       <polyline points="9 22 9 12 15 12 15 22"/>
     </svg>
     Home
   </a>
-  <a routerLink="/portfolio" routerLinkActive="active" class="nav-mobile-link" (click)="closeMenu()">
+  <a href="#portfolio" class="nav-mobile-link" [class.active]="isActive('portfolio')" [attr.aria-current]="isActive('portfolio') ? 'true' : null" (click)="scrollTo($event, 'portfolio')">
     <svg class="nav-mobile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <rect width="7" height="7" x="3" y="3" rx="1"/>
       <rect width="7" height="7" x="14" y="3" rx="1"/>
@@ -81,7 +81,7 @@
     </svg>
     Portfolio
   </a>
-  <a routerLink="/projects" routerLinkActive="active" class="nav-mobile-link" (click)="closeMenu()">
+  <a href="#lab" class="nav-mobile-link" [class.active]="isActive('lab')" [attr.aria-current]="isActive('lab') ? 'true' : null" (click)="scrollTo($event, 'lab')">
     <svg class="nav-mobile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
       <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
@@ -89,14 +89,14 @@
     </svg>
     Lab
   </a>
-  <a routerLink="/about" routerLinkActive="active" class="nav-mobile-link" (click)="closeMenu()">
+  <a href="#about" class="nav-mobile-link" [class.active]="isActive('about')" [attr.aria-current]="isActive('about') ? 'true' : null" (click)="scrollTo($event, 'about')">
     <svg class="nav-mobile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
       <circle cx="12" cy="7" r="4"/>
     </svg>
     About
   </a>
-  <a routerLink="/contact" routerLinkActive="active" class="nav-mobile-link" (click)="closeMenu()">
+  <a href="#contact" class="nav-mobile-link" [class.active]="isActive('contact')" [attr.aria-current]="isActive('contact') ? 'true' : null" (click)="scrollTo($event, 'contact')">
     <svg class="nav-mobile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <rect width="20" height="16" x="2" y="4" rx="2"/>
       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>

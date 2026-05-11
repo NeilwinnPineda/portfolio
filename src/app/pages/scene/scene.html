@@ -1,3 +1,11 @@
+<div class="scene-shell">
+
+<div class="scene-intro">
+  <span class="section-label">Interactive</span>
+  <h1 class="scene-heading">The Lab</h1>
+  <p class="scene-sub">A particle cloud built from a 3D mesh — tune it, sync it to music, or just watch it drift.</p>
+</div>
+
 <div #stage class="scene-stage"></div>
 
 <!-- Tuning panel -->
@@ -45,7 +53,7 @@
             }
           </button>
         </span>
-        <input type="range" min="500" [max]="extremeUnlocked() ? 500000 : 80000" step="500"
+        <input type="range" min="500" [max]="extremeUnlocked() ? extremeMaxParticles() : safeMaxParticles()" step="500"
                [ngModel]="particleCount()" (ngModelChange)="particleCount.set(+$event)" />
       </div>
 
@@ -96,4 +104,5 @@
     </div>
   }
 
+</div>
 </div>
