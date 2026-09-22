@@ -2,32 +2,32 @@
   "site": {
     "name": "Neilwinn M. Pineda",
     "type": "Portfolio / Technical Resume",
-    "description": "A technical workspace centered on visualization, full stack delivery, automation utilities, and AI-assisted execution.",
+    "description": "3D production leadership, Angular and TypeScript development, business systems, and custom AI tools.",
     "status": "Active Development",
     "version": "1.0.0"
   },
 
   "hero": {
     "name": "Neilwinn M. Pineda",
-    "title": "3D Modeller | Full Stack Developer | Automation Systems | AI Workflows",
-    "subtitle": "Technical generalist across visualization, web platforms, automation, and interactive runtime tooling.",
+    "title": "3D Production Lead | Developer",
+    "subtitle": "I lead 3D production and build software for design, construction, and development workflows.",
     "focusAreas": [
-      "3D Artist",
-      "Full Stack",
-      "Automation",
-      "AI Workflows",
-      "Extensions"
+      "3D Production",
+      "Angular & TypeScript",
+      "Business Systems",
+      "AI Harnesses",
+      "Development Tools"
     ],
-    "headline": "I build across 3D visualization, full stack software, automation, and runtime-focused tools with production experience in rendering operations, internal platforms, and team delivery.",
+    "headline": "I have led teams of up to 13 modelers, sustained roughly 3,000 modeling orders a month, and built tools that turn manual production and business processes into connected workflows.",
     "subtext": [
       "If there is friction in a process, I tend to build something to fix it."
     ],
     "tags": [
-      "3D / Rendering",
-      "MEAN / MERN",
-      "Custom Tools",
-      "Web Scraping",
-      "LLM Workflows"
+      "3D Production",
+      "Angular / TypeScript",
+      "Node.js / MongoDB",
+      "AppSheet ERP",
+      "Custom AI Harnesses"
     ],
     "location": {
       "city": "Olongapo City",
@@ -36,15 +36,19 @@
   },
 
   "contact": {
-    "email": "ewnpineda92017@gmail.com",
+    "email": "pinedaneilwinn@gmail.com",
+    "alternateEmail": "erwinpineda92017@gmail.com",
+    "linkedin": {
+      "label": "neilwinn-pineda-56559a240",
+      "url": "https://www.linkedin.com/in/neilwinn-pineda-56559a240/"
+    },
     "github": {
       "username": "NeilwinnPineda",
       "url": "https://github.com/NeilwinnPineda"
     },
     "portfolio": "https://NeilwinnPineda.github.io/portfolio/",
     "resumes": {
-      "artist3d": "assets/images/3DM_Res.pdf",
-      "fullstack": "assets/images/Fullstack_Res.pdf"
+      "combined": "assets/images/neilwinn-pineda-resume-3-pages.pdf"
     },
     "phone": {
       "mobile": "+63 998 377 2384",
@@ -61,15 +65,15 @@
   "quickNote": "Keep trying till it works!",
 
   "about": {
-    "intro": "I studied architecture before moving into professional 3D visualization, then expanded into software by building utilities around real production friction. Most of my work starts from operational gaps, repetitive manual steps, or curiosity about how rendering, interaction, and data can connect into cleaner technical environments. This portfolio is not a static gallery - it is an active workspace containing production tools, visualization experiments, runtime research, and reusable infrastructure shaped by practical needs.",
-    "tagline": "Systems-oriented developer for visualization, automation, and interactive technical tools."
+    "intro": "I lead 3D modeling work and build software for the processes around it. At EMAPTA I managed up to 13 modelers at once and about 50 over the role, while the team sustained roughly 3,000 orders a month. Alongside employed roles, I built a production AppSheet ERP for a design and construction business, contractor wage tools, and custom AI harnesses for development work. My strongest software stack is Angular, TypeScript, Node.js, and MongoDB.",
+    "tagline": "3D production lead and developer focused on practical tools for design, construction, and software teams."
   },
 
   "footer": {
-    "bio": "Technical generalist based in the Philippines, building across visualization, runtime interfaces, web delivery, and automation."
+    "bio": "Based in Olongapo City, Philippines. I lead 3D production and build software for design, construction, and development work."
   },
 
-  "moreWork": "Check out my portfolio @ NeilwinnPineda.github.io/portfolio/",
+    "moreWork": "Selected software projects and architectural visualization work.",
 
   "projectGroups": [
     {
@@ -103,32 +107,44 @@
         "end": "Mar 2026"
       },
       "description": [
-        "Led a 3D modeling production team delivering high-volume architectural visualization for international clients.",
-        "Owned production coordination, quality standards, and technical troubleshooting across end-to-end rendering delivery.",
-        "Served as the key liaison between production teams and management during peak-volume periods."
+        "Led up to 13 modelers at once and about 50 across the role, covering assignments, training, quality review, deadlines, and client issues.",
+        "The team sustained roughly 3,000 modeling orders a month.",
+        "Built performance and order tracking tools, SketchUp utilities, and change-based updates across 1,000+ fields to work within Google API limits."
+      ]
+    },
+    {
+      "company": "Independent developer",
+      "role": "Web and business systems",
+      "period": {
+        "start": "2023",
+        "end": "present"
+      },
+      "description": [
+        "Delivered a production AppSheet ERP connecting leads, sales, design, tenders, construction, project tasks, and daily operations for an interior design and construction business.",
+        "Built contractor tools for labourer attendance, daily wages, pay advances, and bonuses.",
+        "Built a restaurant menu reflecting the client's visual identity and a commissioned Hangouts-style chat application for a US client."
       ]
     },
     {
       "company": "SHORE360",
-      "role": "3D Modeling / Rendering",
+      "role": "3D Modeling and Rendering",
       "period": {
         "start": "Jan 2023",
         "end": "Mar 2025"
       },
       "description": [
-        "Delivered high-volume architectural visualization outputs - modeling, rendering, and post-processing - across tight client turnaround schedules.",
-        "Maintained consistent quality across large SketchUp and VRay pipeline batches under sustained production pressure."
+        "Produced architectural models and rendered scenes, prepared materials and presentation views, and handled revisions and scene cleanup for delivery."
       ]
     },
     {
       "company": "Prodigal Developers",
-      "role": "Internship",
+      "role": "3D and Programming Intern",
       "period": {
-        "start": "Sep 2023",
-        "end": "Sep 2023"
+        "start": "Jan 2022",
+        "end": "2023"
       },
       "description": [
-        "Contributed to Unity-based delivery practices covering asset preparation, geometry optimization, and game-ready production structures."
+        "Created and prepared 3D models for games and contributed Unity programming during a one-year internship."
       ]
     }
   ],
@@ -136,118 +152,136 @@
   "technicalHighlights": [
     {
       "title": "Production 3D Visualization",
-      "description": "Delivered thousands of production-ready visual outputs across modeling, rendering, and post-processing pipelines in professional studio environments."
+      "description": "Led up to 13 modelers at a time; the team sustained roughly 3,000 modeling orders a month."
     },
     {
       "title": "Full Stack Web Development",
-      "description": "Built full stack JavaScript solutions including dashboards, REST APIs, browser extensions, and production-aware internal web applications."
+      "description": "Built web and development tools primarily with Angular, TypeScript, Node.js, and MongoDB."
     },
     {
       "title": "Workflow Automation",
-      "description": "Built custom utilities, reporting surfaces, scraping helpers, and spreadsheet automation targeting real production bottlenecks - reducing repetitive work and improving team visibility."
+      "description": "Built production tracking, order allocation, and contractor wage tools; used change-based updates to work within Google API limits."
     },
     {
-      "title": "AI and LLM Integration",
-      "description": "Integrates LLM-assisted development for faster prototyping, debugging support, code generation, and iterative technical problem-solving."
+      "title": "Custom AI Harnesses",
+      "description": "Connected AI assistants to project tools for code inspection, selected test runs, editor checks, and development feedback."
     }
   ],
 
   "skills": [
     {
-      "title": "Programming and Runtime Development",
-      "description": "General programming background across scripting, lower-level development, runtime utilities, and extension-oriented implementation.",
+      "title": "Core Web Stack",
+      "description": "Strongest stack for web applications and development tools.",
       "tags": [
-        "General Programming",
-        "Systems Programming",
-        "Runtime and Tool Development",
-        "Runtime Design Patterns"
+        "Web Applications",
+        "APIs",
+        "Development Tools"
       ],
       "tools": [
-        "C++",
-        "C#",
-        "JavaScript",
-        "TypeScript",
-        "Python",
-        "Ruby"
-      ]
-    },
-    {
-      "title": "Full Stack Web Development",
-      "description": "Builds full stack web applications, REST APIs, dashboards, and dynamic interfaces across modern JavaScript ecosystems.",
-      "tags": [
-        "Full Stack JavaScript",
-        "REST APIs",
-        "Dynamic UI Systems",
-        "Dashboard Applications"
-      ],
-      "tools": [
-        "MEAN / MERN",
         "Angular",
-        "React",
+        "TypeScript",
         "Node.js",
-        "Express"
+        "MongoDB"
       ]
     },
     {
-      "title": "Data and Automation",
-      "description": "Experience with structured and unstructured data, process automation, scraping, reporting, and data-driven operational utilities.",
+      "title": "Additional Web and Data",
+      "description": "React, Ionic, MongoDB, and SQL were used in the BS Information Technology capstone; additional UI and server tools support project work.",
       "tags": [
-        "SQL / NoSQL Systems",
-        "Process Automation",
-        "DOM and Web Scraping",
-        "Operational Dashboards"
+        "Capstone Work",
+        "Interface Development",
+        "Data Handling"
       ],
       "tools": [
-        "MongoDB",
-        "Google Apps Script",
-        "Excel",
-        "Google Sheets"
+        "React",
+        "Ionic",
+        "SQL",
+        "Express",
+        "Angular Material",
+        "Tailwind CSS",
+        "RxJS"
       ]
     },
     {
-      "title": "Graphics and Visualization",
-      "description": "Strong production background in 3D visualization, rendering, modeling workflows, and final image preparation.",
+      "title": "Business Systems",
+      "description": "Built a production AppSheet ERP for design and construction, plus tracking and wage tools for production and contractor work.",
       "tags": [
-        "3D Modeling",
+        "ERP Workflows",
+        "Order Tracking",
+        "Labour Pay"
+      ],
+      "tools": [
+        "AppSheet",
+        "Google Sheets",
+        "Apps Script",
+        "Ruby",
+        "Webhooks",
+        "APIs",
+        "n8n",
+        "Zapier"
+      ]
+    },
+    {
+      "title": "3D Modeling and Rendering",
+      "description": "Professional architectural modeling and rendering work from 2023 to 2026.",
+      "tags": [
+        "Architectural Models",
         "Rendering",
-        "Post Processing"
+        "Presentation Views"
       ],
       "tools": [
         "SketchUp",
-        "VRay",
+        "V-Ray",
         "AutoCAD",
         "Lumion",
         "Enscape"
       ]
     },
     {
-      "title": "AI and LLM Workflows",
-      "description": "Applies AI and LLM tools to accelerate development - prototyping, debugging, code generation, and iterative problem-solving across projects.",
+      "title": "AI Harnesses and Automation",
+      "description": "Connected AI assistants to Unity and Revit project tools; used layered context, prompt refinement, execution checks, and token budgeting.",
       "tags": [
-        "AI-Assisted Development",
-        "LLM Workflows",
-        "Agentic Tooling",
-        "Prompt-Guided Iteration"
+        "Code Inspection",
+        "Editor Checks",
+        "Selected Test Runs"
       ],
       "tools": [
-        "Claude",
-        "Codex"
+        "Node.js",
+        "C# Editor Tools",
+        "Revit API",
+        "PowerShell"
       ]
     },
     {
-      "title": "Custom Tools and Production Utilities",
-      "description": "Builds custom tools around real production needs - repetitive task reduction, QA checks, reporting systems, and execution coordination.",
+      "title": "Engine and CAD Development",
+      "description": "Personal projects and prototypes in graphics, game development, and CAD integration.",
       "tags": [
-        "Internal Tools",
-        "Reporting Systems",
-        "QA Utilities",
-        "Production Support"
+        "C++ Engine",
+        "Unity Tools",
+        "Revit Bridge"
       ],
       "tools": [
-        "Apps Script",
-        "Dashboards",
-        "Spreadsheets",
-        "Utility Scripts"
+        "C++17",
+        "DirectX 11",
+        "CMake",
+        "Unity",
+        "Revit API"
+      ]
+    },
+    {
+      "title": "Graphics and Design",
+      "description": "Creative tools for interface, layout, and visual presentation work.",
+      "tags": [
+        "Image Editing",
+        "Interface Design",
+        "Presentation"
+      ],
+      "tools": [
+        "Photoshop",
+        "Illustrator",
+        "Premiere Pro",
+        "Figma",
+        "Canva"
       ]
     }
   ],
@@ -257,16 +291,24 @@
       "institution": "Gordon College",
       "degree": "BS Information Technology",
       "period": {
-        "start": "2017",
-        "end": "2022"
+        "start": "Aug 2017",
+        "end": "Jun 2022"
+      }
+    },
+    {
+      "institution": "Bluespoon Culinaire",
+      "degree": "BA Culinary Arts",
+      "period": {
+        "start": "Aug 2016",
+        "end": "Jun 2017"
       }
     },
     {
       "institution": "Saint Louis University",
-      "degree": "BS Architecture, Discontinued",
+      "degree": "BS Architecture (incomplete)",
       "period": {
-        "start": "2013",
-        "end": "2017"
+        "start": "Aug 2011",
+        "end": "Jun 2016"
       }
     }
   ],
@@ -277,7 +319,7 @@
       "VS Code",
       "GitHub",
       "SketchUp",
-      "VRay",
+      "V-Ray",
       "Angular",
       "Apps Script",
       "DevTools",
@@ -285,7 +327,7 @@
     ]
   },
 
-  "closingNote": "I build technical environments that stay practical under production pressure, and I am looking for a team where cross-domain problem solving creates real operational impact.",
+  "closingNote": "I bring production leadership and hands-on software work to teams that need practical tools, clear processes, and reliable delivery.",
 
   "certificates": [
     { "src": "assets/images/certificates/cert-1.png", "alt": "Certificate" },
@@ -294,17 +336,82 @@
     { "src": "assets/images/certificates/cert-4.png", "alt": "Certificate" }
   ],
 
+  "selectedProjects": [
+    {
+      "name": "PlanForge",
+      "kind": "Personal project",
+      "description": "Explore residential layouts by defining room requirements, generating and comparing candidates, reviewing checks, and inspecting construction output views.",
+      "tech": "Angular · TypeScript",
+      "github": "https://github.com/NeilwinnPineda/planforge"
+    },
+    {
+      "name": "Hangouts-style chat",
+      "kind": "Commissioned project",
+      "description": "A chat application commissioned by a US client.",
+      "tech": "Web application",
+      "github": "https://github.com/NeilwinnPineda/Hang"
+    },
+    {
+      "name": "Hardware store system",
+      "kind": "Academic capstone",
+      "description": "Inventory, accounting, and employee timekeeping functions for a hardware store.",
+      "tech": "React · Ionic · MongoDB · SQL",
+      "sourceStatus": "Repository not yet linked"
+    },
+    {
+      "name": "Unity development harness",
+      "kind": "Personal project",
+      "description": "Node.js and C# Editor tools for code inspection, Editor status checks, selected Edit Mode tests, and Play Mode captures.",
+      "tech": "Node.js · C# · Unity",
+      "sourceStatus": "Repository private"
+    },
+    {
+      "name": "This portfolio",
+      "kind": "Personal project",
+      "description": "The Angular and TypeScript site presenting my projects and visual work.",
+      "tech": "Angular · TypeScript",
+      "github": "https://github.com/NeilwinnPineda/portfolio"
+    }
+  ],
+
+  "featuredProjects": [
+    {
+      "name": "Revit bridge",
+      "status": "Prototype · private source",
+      "description": "A local HTTP bridge that lets external tools send structured commands into a live Revit session. It is part of the PlanForge layout-contract workflow.",
+      "focus": [
+        "Built a .NET Revit add-in with a local HTTP endpoint and ExternalEvent command routing.",
+        "Worked with structured layout data intended to move from PlanForge into Revit geometry.",
+        "Kept this as a prototype; the full generation-to-Revit pipeline is still in development."
+      ],
+      "tech": ["Revit API", "C# / .NET", "HTTP", "PlanForge"],
+      "github": ""
+    },
+    {
+      "name": "UI template system",
+      "status": "Personal project · active work",
+      "description": "A reusable interface foundation and TypeScript compiler that turns custom HTML tags into static pages.",
+      "focus": [
+        "Built shared CSS tokens, components, and themes for framework-neutral interfaces.",
+        "Developed a master template compiler and component transforms that produce static HTML.",
+        "Maintained Angular and Next.js demonstrations while the master compiler is under revision."
+      ],
+      "tech": ["TypeScript", "Node.js", "HTML/CSS", "Angular", "Next.js"],
+      "github": "https://github.com/NeilwinnPineda/to-any"
+    }
+  ],
+
   "gameEngine": {
     "name": "Engine-Chili2.0",
-    "status": "Flagship Runtime R&D",
-    "description": "Engine-Chili2.0 is my flagship runtime research track: a C++ rendering and interaction environment used to explore reusable graphics infrastructure, editor/runtime separation, and prototype-first technical direction.",
+    "status": "Personal project · active development",
+    "description": "A C++ graphics engine with a native Studio host, reusable runtime, and Pong test app. I use it to develop rendering and runtime tools against a real game workflow.",
     "recentProgress": [
-      "Refined core render loop behavior and improved frame-to-frame scene stability during iteration.",
-      "Expanded entity and update flow to support cleaner experimentation with reusable runtime features.",
-      "Organized CMake targets to speed up local compile-test cycles and reduce integration friction.",
-      "Improved camera and input behavior for more reliable interaction testing across prototype scenes."
+      "Separated frame submission, rendering, and GPU work; the DirectX 11 path draws scene geometry with lighting and materials.",
+      "Built a Studio host that loads a project's runtime DLL into its viewport, with a read-only local bridge for inspection.",
+      "Added contract tests for scene behavior, Pong simulation, runtime loading, input, and Studio commands.",
+      "Organized separate CMake targets for the engine runtime, Studio, Pong preview, and development tools."
     ],
-    "tech": ["C++", "DirectX", "HLSL", "CMake"],
-    "github": "https://github.com/chaosg0hd/Engine-Chili2.0"
+    "tech": ["C++17", "DirectX 11", "CMake", "Studio", "CTest"],
+    "github": "https://github.com/NeilwinnPineda/Engine-Chili2.0"
   }
 }

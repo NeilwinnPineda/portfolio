@@ -509,6 +509,74 @@
   border-top: 1px solid var(--border);
 }
 
+/* Selected software work and source links */
+.project-repo-section {
+  margin-top: 5rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--border);
+}
+
+.project-repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.project-repo-more {
+  margin: 3.5rem 0 0.5rem;
+  color: var(--text-primary);
+  font-size: 1.45rem;
+}
+
+.project-repo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--section-card-radius);
+  background: var(--surface-card);
+}
+
+.project-repo-kind,
+.project-repo-tech,
+.project-repo-status {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.project-repo-kind {
+  color: var(--color-spicy-paprika);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-repo-card h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.15rem;
+}
+
+.project-repo-card p {
+  flex: 1;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.project-repo-card a {
+  align-self: flex-start;
+  color: var(--color-spicy-paprika);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
 /* ── Certificate image gallery ── */
 .cert-gallery {
   display: flex;

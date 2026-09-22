@@ -8,6 +8,15 @@ const FEATURED_REVERT_DELAY_MS = 3000;
 const FULL_IMAGE_DIR = 'assets/images/portfolio/';
 const THUMB_IMAGE_DIR = 'assets/images/portfolio/thumbs/';
 
+interface SelectedProject {
+  name: string;
+  kind: string;
+  description: string;
+  tech: string;
+  github?: string;
+  sourceStatus?: string;
+}
+
 interface PortfolioItem {
   fullSrc: string | null;
   thumbSrc: string | null;
@@ -31,6 +40,7 @@ interface BorrowedPortfolioItem extends PortfolioItem {
 })
 export class Portfolio implements AfterViewInit, OnDestroy {
   readonly content = content;
+  readonly selectedProjects: SelectedProject[] = content.selectedProjects;
 
   activeCert = signal<number | null>(null);
   toggleCert(i: number) { this.activeCert.update(v => v === i ? null : i); }

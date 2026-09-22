@@ -28,11 +28,11 @@
             <div class="footer-credits-row">
               <a [href]="content.contact.github.url" target="_blank" rel="noopener" class="footer-link">GitHub</a>
               <span class="footer-sep">·</span>
+              <a [href]="content.contact.linkedin.url" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+              <span class="footer-sep">·</span>
               <a [href]="'mailto:' + content.contact.email" class="footer-link">{{ content.contact.email }}</a>
               <span class="footer-sep">·</span>
-              <a [href]="content.contact.resumes.artist3d" download class="footer-link footer-link--resume">3D Resume</a>
-              <span class="footer-sep">·</span>
-              <a [href]="content.contact.resumes.fullstack" download class="footer-link footer-link--resume">Full Stack Resume</a>
+              <a [href]="content.contact.resumes.combined" download class="footer-link footer-link--resume">Resume</a>
             </div>
             <div class="footer-credits-row">
               <a [href]="content.contact.phone.mobileHref" class="footer-link">{{ content.contact.phone.mobile }}</a>
