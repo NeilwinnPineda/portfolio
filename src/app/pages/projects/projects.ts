@@ -12,6 +12,9 @@ const MODEL_Y_LOCK_FACTOR = 0.0;
 const ORBIT_BASE_SPEED = 0.16;
 const ORBIT_SPEED_JITTER = 0.06;
 const STAR_COUNT = 900;
+const PARTICLE_LIFE_MIN = 1.8;
+const PARTICLE_LIFE_SPREAD = 2.6;
+const PARTICLE_FADE_WINDOW = 0.28;
 
 interface MeshJson {
   positions: number[];
@@ -38,6 +41,8 @@ interface Particle {
   drift:        number;
   twinkleSpeed: number;
   hueOffset:    number;
+  age:          number;
+  lifetime:     number;
 }
 
 @Component({
@@ -152,16 +157,10 @@ export class Projects implements AfterViewInit, OnDestroy {
     scene.add(root);
 
     const driftBase   = Math.max(sampler.maxDimension * 0.003, 0.012);
-    const particles: Particle[] = Array.from({ length: PARTICLE_COUNT }, () => ({
-      base:         this.randomSurface(sampler),
-      seedA:        Math.random() * 1000,
-      seedB:        Math.random() * 1000,
-      seedC:        Math.random() * 1000,
-      scale:        0.6  + Math.random() * 1.8,
-      drift:        driftBase + Math.random() * driftBase * 2.4,
-      twinkleSpeed: 1.6  + Math.random() * 2.8,
-      hueOffset:    (Math.random() - 0.5) * 0.025
-    }));
+    const particles: Particle[] = Array.from(
+      { length: PARTICLE_COUNT },
+      () => this.spawnParticle(sampler, driftBase, true)
+    );
 
     // ── Theme sync (polls --theme-mix so auto-cycle + manual toggle both work) ──
     const starMat  = stars.material as THREE.PointsMaterial;
@@ -193,7 +192,8 @@ export class Projects implements AfterViewInit, OnDestroy {
       const nowLight = themeMix() > 0.5;
       if (nowLight !== lightMode) applyTheme(nowLight);
 
-      const elapsed  = clock.getElapsedTime();
+      const delta    = Math.min(clock.getDelta(), 0.08);
+      const elapsed  = clock.elapsedTime;
       const orbitSpeed =
         ORBIT_BASE_SPEED +
         this.waveNoise(elapsed * 0.11, 3.7) * ORBIT_SPEED_JITTER +
@@ -221,25 +221,38 @@ export class Projects implements AfterViewInit, OnDestroy {
       const updateColor = frame % this.colorStride === 0;
       for (let i = 0; i < PARTICLE_COUNT; i++) {
         const p  = particles[i];
+        p.age += delta;
+        if (p.age >= p.lifetime) {
+          particles[i] = this.spawnParticle(sampler, driftBase);
+        }
+
+        const live = particles[i];
+        const lifeProgress = live.age / live.lifetime;
+        const lifeFade = Math.min(
+          1,
+          lifeProgress / PARTICLE_FADE_WINDOW,
+          (1 - lifeProgress) / PARTICLE_FADE_WINDOW
+        );
+        const presence = Math.max(0.03, lifeFade);
         const ox =
-          this.waveNoise(elapsed * (1.05 + p.scale * 0.45), p.seedA) * p.drift;
+          this.waveNoise(elapsed * (1.05 + live.scale * 0.45), live.seedA) * live.drift;
         const oy =
-          this.waveNoise(elapsed * (1.18 + p.scale * 0.55), p.seedB) * p.drift;
+          this.waveNoise(elapsed * (1.18 + live.scale * 0.55), live.seedB) * live.drift;
         const oz =
-          this.waveNoise(elapsed * (0.96 + p.scale * 0.5), p.seedC) * p.drift;
-        dummy.position.set(p.base.x + ox, p.base.y + oy, p.base.z + oz);
+          this.waveNoise(elapsed * (0.96 + live.scale * 0.5), live.seedC) * live.drift;
+        dummy.position.set(live.base.x + ox, live.base.y + oy, live.base.z + oz);
 
         const twinkle =
-          0.72 + this.waveNoise(elapsed * p.twinkleSpeed, p.seedA * 4) * 0.28;
-        dummy.scale.setScalar(p.scale * (0.9 + twinkle * 0.14));
+          0.72 + this.waveNoise(elapsed * live.twinkleSpeed, live.seedA * 4) * 0.28;
+        dummy.scale.setScalar(live.scale * presence * (0.9 + twinkle * 0.14));
         dummy.updateMatrix();
         beads.setMatrixAt(i, dummy.matrix);
 
         if (updateColor) {
           color.setHSL(
-            ((globalHue + p.hueOffset) % 1 + 1) % 1,
+            ((globalHue + live.hueOffset) % 1 + 1) % 1,
             1.0,
-            lightMode ? 0.22 + twinkle * 0.18 : 0.38 + twinkle * 0.32
+            (lightMode ? 0.22 + twinkle * 0.18 : 0.38 + twinkle * 0.32) * (0.55 + presence * 0.45)
           );
           beads.setColorAt(i, color);
         }
@@ -319,6 +332,22 @@ export class Projects implements AfterViewInit, OnDestroy {
       .copy(a)
       .addScaledVector(new THREE.Vector3().subVectors(b, a), u)
       .addScaledVector(new THREE.Vector3().subVectors(c, a), v);
+  }
+
+  private spawnParticle(sampler: Sampler, driftBase: number, scatterAge = false): Particle {
+    const lifetime = PARTICLE_LIFE_MIN + Math.random() * PARTICLE_LIFE_SPREAD;
+    return {
+      base:         this.randomSurface(sampler),
+      seedA:        Math.random() * 1000,
+      seedB:        Math.random() * 1000,
+      seedC:        Math.random() * 1000,
+      scale:        0.6 + Math.random() * 1.8,
+      drift:        driftBase + Math.random() * driftBase * 2.4,
+      twinkleSpeed: 1.6 + Math.random() * 2.8,
+      hueOffset:    (Math.random() - 0.5) * 0.025,
+      age:          scatterAge ? Math.random() * lifetime : 0,
+      lifetime
+    };
   }
 
   private waveNoise(t: number, seed: number): number {
