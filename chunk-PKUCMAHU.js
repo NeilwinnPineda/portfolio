@@ -1,0 +1,1 @@
+import{Ba as t,Va as a,Wa as o,nb as r}from"./chunk-X3DRUKBD.js";var i=class n{static \u0275fac=function(e){return new(e||n)};static \u0275cmp=t({type:n,selectors:[["app-playground"]],decls:3,vars:0,consts:[[2,"padding","2rem"]],template:function(e,s){e&1&&(a(0,"div",0)(1,"h1"),r(2,"Playground"),o()())},encapsulation:2})};export{i as Playground};
